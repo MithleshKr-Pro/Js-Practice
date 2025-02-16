@@ -1,0 +1,331 @@
+body {
+  background: rgba(0, 0, 0, 0.811);
+  background: rgb(117, 115, 115);
+  color: orange;
+  /* font-family: 'Courier New', Courier, monospace; */
+  font-family: sans-serif;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+p,
+ul {
+  background-color: rgb(0, 0, 0);
+  color: orange;
+  padding: 1rem;
+  border-radius: 5px;
+}
+ul {
+  padding: 1.5rem;
+}
+.navbar {
+  background: rgb(0, 0, 0);
+  display: flex;
+  margin-top: -0.5rem;
+  justify-content: space-between;
+}
+.navbar a {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+  padding: 0.5rem;
+}
+.navbar a:hover {
+  background-color: rgba(255, 254, 254, 0.203);
+  color: white;
+}
+.navbar h2 {
+  text-decoration: none;
+  margin: 0;
+  margin-left: 1rem;
+  padding: auto;
+}
+#contactUs {
+  border: 2px solid orange;
+  border-radius: 5px;
+}
+#facts,
+#about,
+#blogs,
+#home {
+  /* border-bottom: none; */
+  position: relative;
+  cursor: pointer;
+  /* text-decoration: 1px solid red underline; */
+}
+#blogs::after,
+#about::after,
+#facts::after,
+#home::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgb(20, 133, 194);
+  /* display: none; */
+  /* transform: translateX(-100%); */
+  transition: width 2s ease;
+}
+#blogs:hover::after,
+#blogs:active,
+#about:hover::after,
+#facts:hover::after,
+#home:hover::after {
+  /* transform: translateX(0); */
+  width: 100%;
+  /* display: block; */
+  /* opacity: 1; */
+}
+/* #blogs:hover{
+    border-bottom: 5px solid orange; 
+    animation: up_down 200ms ease;
+
+} */
+
+
+.topicsExtension,
+.aboutExtension,
+.blogsExtension {
+  /* display: flex; */
+  display: none;
+  border: 1px solid rgb(219, 218, 218);
+  border-top: none;
+  opacity: 0;
+  flex-direction: column;
+  background: black;
+  color: white;
+  position: absolute;
+  top: 2rem;
+  border-radius: 5px;
+  transform: translateY(-100%);
+  transition: opacity 2s ease, transform 2s ease;
+}
+.topicsExtension.show,
+.aboutExtension.show,
+.blogsExtension.show {
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  transform: translateY(0);
+}
+.topicsExtensionChild div,
+.aboutExtensionChild div,
+.blogsExtensionChild div {
+  padding: 0.1rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: fit-content;
+}
+.topicsExtensionChild hr,
+.aboutExtensionChild hr,
+.blogsExtensionChild hr {
+  border: 1px solid rgb(111, 108, 108);
+}
+/* Arrow indicator */
+/* .topicsExtension::before,
+.aboutExtension::before,
+.blogsExtension::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid orange;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+} */
+
+/* Shadow effect on arrow*/
+/*.topicsExtension::after,
+.aboutExtension::after,
+.blogsExtension::after {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 19px;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 11px solid rgba(196, 48, 48, 0.1);
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+} */
+
+/* Animate the arrow when dropdown opens */
+.topicsExtension.show::before,
+.topicsExtension.show::after,
+.aboutExtension.show::before,
+.aboutExtension.show::after,
+.blogsExtension.show::before,
+.blogsExtension.show::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dropdown item animation */
+.topicsExtensionChild div,
+.aboutExtensionChild div,
+.blogsExtensionChild div {
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: slideIn 0.3s ease forwards;
+}
+
+/* Adding delay for cascading effect */
+.topicsExtensionChild div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.topicsExtensionChild div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.topicsExtensionChild div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.topicsExtensionChild div:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.topicsExtensionChild div:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.aboutExtensionChild div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.aboutExtensionChild div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.aboutExtensionChild div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.blogsExtensionChild div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.blogsExtensionChild div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.blogsExtensionChild div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Slide-in keyframes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar a {
+    margin: 0.5rem 0;
+  }
+  footer {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+h1 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  text-decoration: 2px dotted orange underline;
+}
+h2 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-decoration: 2px dotted rgb(3, 45, 3) underline;
+}
+h3 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-decoration: 1px dotted orange underline;
+}
+section {
+  padding: 1rem;
+  color: black;
+  background-color: rgb(76, 75, 75);
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+#featuresPara {
+  text-align: center;
+}
+table {
+  width: 100%;
+  border: 2px solid rgb(255, 255, 255);
+  border-collapse: collapse;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+}
+table td,
+th {
+  padding: 1rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+hr {
+  border: 2px dotted grey;
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(40, 39, 39);
+  padding: 1rem;
+  margin: 0;
+  margin-bottom: -1rem;
+}
+footer form {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: rgba(61, 55, 55, 0.327);
+  border-radius: 1rem;
+  width: max-content;
+  align-self: center;
+}
+footer form input {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+footer form textarea {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+footer form button {
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background: gray;
+  color: white;
+}
